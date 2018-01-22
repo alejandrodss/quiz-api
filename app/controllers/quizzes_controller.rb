@@ -42,7 +42,7 @@ class QuizzesController < ApplicationController
   end
 
   def wrong_answers(answers)
-    good_answers = Question::ANSWERS
+    good_answers = Question::ANSWERS.clone
     answers.each_with_index do |value, index|
       good_answers.delete(index.to_s) if value.to_i.eql?(good_answers[index.to_s])
     end
